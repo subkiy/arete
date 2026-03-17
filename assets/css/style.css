@@ -1657,7 +1657,7 @@ nav {
 /* ─── Homepage Hero ──────────────────────────────────── */
 .home-hero {
   width: 100%;
-  height: 92vh;
+  height: 65vh;
   background-size: cover;
   background-position: center;
   background-color: var(--ink);
