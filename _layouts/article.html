@@ -39,13 +39,7 @@ layout: default
     </div>
   </div>
  
-  {% if page.tags %}
-  <div class="aeon-tags">
-    {% for tag in page.tags %}
-    <a class="aeon-tag" href="#">{{ tag }}</a>
-    {% endfor %}
-  </div>
-  {% endif %}
+ 
 </div>
  
 <hr class="aeon-rule">
@@ -55,6 +49,7 @@ layout: default
   {{ content }}
 </article>
  
+<!-- Author bio -->
 <!-- Author bio -->
 <div class="aeon-author-bio">
   <div class="aeon-author-avatar large">
@@ -69,7 +64,18 @@ layout: default
     <p>{{ page.author_bio }}</p>
   </div>
 </div>
- 
+
+<!-- Tags + date footer -->
+{% if page.tags %}
+<div class="article-footer">
+  <div class="article-footer-tags">
+    {% for tag in page.tags %}
+    <a class="article-footer-tag" href="#">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  <div class="article-footer-date">{{ page.date | date: "%-d %B %Y" }}</div>
+</div>
+{% endif %}
 <!-- Related -->
 {% if page.related %}
 <section class="related">
