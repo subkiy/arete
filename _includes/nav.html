@@ -1,7 +1,7 @@
 <nav id="main-nav">
   <div class="nav-inner">
 
-    <!-- Left: Menu + social icons -->
+    <!-- Left: Menu + separators + social icons -->
     <ul class="nav-links--left">
       <li class="nav-dropdown">
         <a href="#" class="nav-dropdown-toggle">Menu ▾</a>
@@ -39,9 +39,9 @@
     <!-- Center: Logo -->
     <a href="{{ '/' | relative_url }}" class="site-name">Aretē</a>
 
-    <!-- Right: About + Subscribe (hidden on mobile) -->
+    <!-- Right: About + Subscribe (desktop only) -->
     <ul class="nav-links--right hide-mobile">
-      <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+      <li><a href="{{ '/about.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
       <li><a href="#subscribe">Subscribe</a></li>
     </ul>
 
@@ -49,9 +49,10 @@
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
+
   </div>
 
-  <!-- Mobile dropdown panel -->
+  <!-- Mobile menu panel -->
   <div class="mobile-menu" id="mobile-menu">
     <a href="{{ '/philosophy.html' | relative_url }}">Philosophy</a>
     <a href="{{ '/mathematics.html' | relative_url }}">Mathematics</a>
@@ -73,6 +74,7 @@
 </div>
 
 <script>
+  // Mobile hamburger
   const hamburger = document.getElementById('nav-hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => {
@@ -86,6 +88,7 @@
     });
   });
 
+  // Search
   const searchBtn = document.getElementById('nav-search-btn');
   const searchOverlay = document.getElementById('nav-search-overlay');
   const searchClose = document.getElementById('nav-search-close');
