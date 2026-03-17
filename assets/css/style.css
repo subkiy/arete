@@ -42,6 +42,13 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 56px;
+  position: relative;
+}
+
+.site-name {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .site-name {
