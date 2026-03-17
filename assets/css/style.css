@@ -1196,6 +1196,7 @@ footer a:hover { color: var(--accent) !important; }
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  flex-wrap: nowrap;
 }
 
 .article-footer-tags {
@@ -1204,19 +1205,25 @@ footer a:hover { color: var(--accent) !important; }
   gap: 0.5rem 1.5rem;
 }
 
-.article-footer-tag {
+.article-footer-tag,
+.article-footer-tag:visited,
+.article-footer-tag:link {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.72rem;
   color: var(--accent) !important;
   text-decoration: none !important;
   transition: opacity 0.15s;
 }
-
 .article-footer-tag:hover { opacity: 0.65; }
 
 .article-footer-date {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.72rem;
-  color: var(--ink-faint);
+  color: var(--ink-faint) !important;
+  text-decoration: none !important;
   white-space: nowrap;
 }
+
+
+
+
