@@ -1,6 +1,7 @@
 ---
 layout: article
-title: "Transfinite induction and transfinite recursion"
+title: "Transfinite Induction and Recursion"
+subtitle: "Test"
 category: "Mathematics · Set Theory"
 date: 2026-03-14
 author: "subkiy"
@@ -9,7 +10,7 @@ author_image: /images/me.jpg
 author_title: "University of Oslo"
 author_bio: "subkiy is Professor of Philosophy at the University of Edinburgh, where she specialises in the history of logic and the philosophy of mathematics. Her most recent book is <em>The Formal Turn</em> (Princeton, 2024)."
 read_time: 18
-image: /images/99.jpg
+image: /images/tin.png
 image_caption: "Your image caption goes here — photograph courtesy of …"
 featured: true
 mathjax: true
