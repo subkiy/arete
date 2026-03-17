@@ -40,7 +40,7 @@ nav {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 56px;
   position: relative;
 }
@@ -62,6 +62,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .site-name img { height: 28px; width: auto; }
