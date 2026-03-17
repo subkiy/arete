@@ -1,12 +1,6 @@
 <nav id="main-nav">
   <div class="nav-inner">
-    <a href="{{ '/' | relative_url }}" class="site-name">Aretē</a>
-
-    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-
-    <ul class="nav-links" id="nav-links">
+    <ul class="nav-links nav-links--left" id="nav-links-left">
       <li class="nav-dropdown">
         <a href="#" class="nav-dropdown-toggle">Categories ▾</a>
         <ul class="dropdown-menu">
@@ -18,22 +12,31 @@
           <li><a href="{{ '/theology.html' | relative_url }}">Theology</a></li>
         </ul>
       </li>
+    </ul>
+
+    <a href="{{ '/' | relative_url }}" class="site-name">Aretē</a>
+
+    <ul class="nav-links nav-links--right">
       <li><a href="{{ '/about.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
       <li><a href="#subscribe">Subscribe</a></li>
     </ul>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <script>
   const hamburger = document.getElementById('nav-hamburger');
-  const navLinks = document.getElementById('nav-links');
+  const allLinks = document.querySelectorAll('.nav-links');
   hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('nav-open');
+    allLinks.forEach(ul => ul.classList.toggle('nav-open'));
     hamburger.classList.toggle('nav-hamburger--open');
   });
-  navLinks.querySelectorAll('a').forEach(link => {
+  document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('nav-open');
+      allLinks.forEach(ul => ul.classList.remove('nav-open'));
       hamburger.classList.remove('nav-hamburger--open');
     });
   });
