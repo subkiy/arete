@@ -1185,3 +1185,38 @@ footer a:hover { color: var(--accent) !important; }
   .nav-hamburger { display: none !important; }
   .mobile-menu { display: none !important; }
 }
+
+/* ─── Article footer (tags + date) ───────────────────── */
+.article-footer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.25rem 2rem 3rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.article-footer-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.article-footer-tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  transition: opacity 0.15s;
+}
+
+.article-footer-tag:hover { opacity: 0.65; }
+
+.article-footer-date {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  color: var(--ink-faint);
+  white-space: nowrap;
+}
