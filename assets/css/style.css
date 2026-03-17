@@ -36,19 +36,13 @@ nav {
 }
 
 .nav-inner {
-  max-width: var(--wide);
+  max-width: 1080px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: flex-end;
   height: 56px;
-  position: relative;
-}
-
-.site-name {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 0 2rem;
 }
 
 .site-name {
@@ -59,35 +53,46 @@ nav {
   text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
+  text-align: center;
+}
+
+.nav-links--left {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.site-name img { height: 28px; width: auto; }
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
+  justify-content: flex-start;
 }
 
-.nav-links a {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.nav-links--right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-social a {
   color: var(--ink-light);
   text-decoration: none;
+  display: flex;
+  align-items: center;
   transition: color 0.2s;
 }
 
-.nav-links a:hover,
-.nav-links a.active { color: var(--accent); }
+.nav-social a:hover { color: var(--accent); }
+
+.nav-social svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
 
 /* ─── Dropdown ───────────────────────────────────────── */
 .nav-dropdown {
