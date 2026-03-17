@@ -89,9 +89,10 @@ nav {
 .nav-social a:hover { color: var(--accent); }
 
 .nav-social svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   fill: currentColor;
+  display: block;
 }
 
 /* ─── Dropdown ───────────────────────────────────────── */
@@ -1733,6 +1734,8 @@ nav-links--left {
   gap: 2rem;
   list-style: none;
   justify-content: flex-start;
+  align-items: center;
+
 }
 
 .nav-links--right {
