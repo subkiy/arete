@@ -3,49 +3,18 @@ layout: default
 title: Home
 ---
 
-<!-- Masthead -->
-<div class="masthead">
-  <div class="masthead-left">
-    <div class="masthead-eyebrow">An Independent Journal of Ideas</div>
-    <h1>{{ site.title }}</h1>
-    <p class="masthead-desc">{{ site.description }}</p>
-  </div>
-  <div class="masthead-issue">
-    <strong>XII</strong>
-    Spring 2026<br>
-    Vol. 12, No. 1
-  </div>
-</div>
-
-<!-- Featured Essay — change the slug to whichever article you want featured -->
 {% assign featured = site.articles | where: "featured", true | first %}
+
+<!-- Full screen hero -->
 {% if featured %}
-<div class="featured-wrap">
-  <div class="section-label">Featured Essay</div>
-  <a class="featured-card" href="{{ featured.url | relative_url }}">
-    <div class="featured-image">
-      {% if featured.image %}
-        <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
-      {% endif %}
-    </div>
-    <div class="featured-body">
-      <div class="card-meta">
-        <span class="card-cat">{{ featured.category }}</span>
-        <div class="card-dot"></div>
-        <span class="card-date">{{ featured.date | date: "%-d %B %Y" }} · {{ featured.read_time }} min read</span>
-      </div>
-      <h2>{{ featured.title }}</h2>
-      <p class="card-dek">{{ featured.subtitle }}</p>
-      <div class="card-author-row">
-        <div class="avatar">{{ featured.author_initials }}</div>
-        <div class="author-info">
-          <div class="author-name">{{ featured.author }}</div>
-          <div class="author-title">{{ featured.author_title }}</div>
-        </div>
-      </div>
-      <span class="read-link">Read Essay →</span>
-    </div>
-  </a>
+<div class="home-hero" style="{% if featured.image %}background-image: url('{{ featured.image | relative_url }}');{% endif %}">
+  <div class="home-hero-overlay"></div>
+  <div class="home-hero-content">
+    <div class="home-hero-cat">{{ featured.category }}</div>
+    <h1 class="home-hero-title">{{ featured.title }}</h1>
+    <p class="home-hero-sub">{{ featured.subtitle }}</p>
+    <a class="home-hero-link" href="{{ featured.url | relative_url }}">Read Essay →</a>
+  </div>
 </div>
 {% endif %}
 
@@ -76,10 +45,10 @@ title: Home
 {% endif %}
 
 <!-- Newsletter -->
-<div class="newsletter-wrap">
+<div class="newsletter-wrap" id="subscribe">
   <div class="newsletter-box">
     <div class="newsletter-text">
-      <h3>Subscribe to {{ site.title }}</h3>
+      <h3>Subscribe to Aretē</h3>
       <p>A new essay, every fortnight. No noise — just ideas.</p>
     </div>
     <div class="newsletter-form">
