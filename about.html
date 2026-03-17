@@ -1,0 +1,126 @@
+---
+layout: default
+title: About
+---
+
+<div class="page-header">
+  <div class="page-eyebrow">The Editor</div>
+  <h1>About</h1>
+</div>
+
+<div class="profile">
+  <div class="profile-left">
+    <div class="profile-portrait">
+      <!-- Add your photo to images/photo.jpg -->
+      <img src="{{ '/images/photo.jpg' | relative_url }}" alt="{{ site.author.name }}">
+    </div>
+    <p class="portrait-caption">{{ site.author.name }}</p>
+  </div>
+
+  <div class="profile-right">
+    <h2 class="profile-name">{{ site.author.name }}</h2>
+    <p class="profile-title">{{ site.author.title }}</p>
+
+    <div class="profile-body">
+      <!-- EDIT YOUR BIO BELOW -->
+      <p>
+        Write your opening paragraph here — who you are and what draws you
+        to these ideas. Two or three sentences that set the tone.
+      </p>
+      <p>
+        A second paragraph about your background, education, or intellectual
+        journey. Where did you come from? What questions have shaped your thinking?
+      </p>
+      <p>
+        A third paragraph about what <em>{{ site.title }}</em> is: why you started it,
+        what it is trying to do, and who it is for.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Areas of Interest -->
+<div class="section-divider"><hr></div>
+<div class="interests-wrap">
+  <div class="section-label">Areas of Interest</div>
+  <div class="interests-grid">
+
+    <div class="interest-card">
+      <div class="interest-num">01</div>
+      <h3>Philosophy of Logic</h3>
+      <p>What are the rules of inference, and where do they come from?</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-num">02</div>
+      <h3>History of Mathematics</h3>
+      <p>How the language of quantity evolved into the foundation of modernity.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-num">03</div>
+      <h3>Philosophy of Mind</h3>
+      <p>The hard problem, consciousness, and everything we still cannot explain.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-num">04</div>
+      <h3>Programming</h3>
+      <p>Code as craft, systems as thought, and software as a mirror of ideas.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-num">05</div>
+      <h3>Political Philosophy</h3>
+      <p>Classical texts, contemporary crises, and what liberal democracy still owes us.</p>
+    </div>
+
+    <div class="interest-card">
+      <div class="interest-num">06</div>
+      <h3>Ideas & Culture</h3>
+      <p>The long view on how thought moves through time and shapes the world.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Selected Essays — auto-generated from your articles -->
+<div class="essays-wrap">
+  <div class="section-label">Selected Essays</div>
+  {% assign articles = site.articles | sort: "date" | reverse %}
+  {% for article in articles %}
+  <a class="essay-list-item" href="{{ article.url | relative_url }}">
+    <div class="essay-list-left">
+      <div class="essay-list-cat">{{ article.category }}</div>
+      <div class="essay-list-title">{{ article.title }}</div>
+    </div>
+    <div class="essay-list-right">{{ article.date | date: "%-d %b %Y" }} · {{ article.read_time }} min</div>
+  </a>
+  {% endfor %}
+</div>
+
+<!-- Contact -->
+<div class="contact-wrap">
+  <div class="section-label">Get in Touch</div>
+  <div class="contact-box">
+    <div class="contact-text">
+      <h3>I'd love to hear from you.</h3>
+      <p>For correspondence about the essays, pitches, corrections,
+         or just a good argument — reach out.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:{{ site.author.email }}">
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-val">{{ site.author.email }}</span>
+      </a>
+      <a class="contact-link" href="https://twitter.com/{{ site.author.twitter | remove: '@' }}">
+        <span class="contact-link-label">Twitter</span>
+        <span class="contact-link-val">{{ site.author.twitter }}</span>
+      </a>
+      <a class="contact-link" href="/feed.xml">
+        <span class="contact-link-label">RSS</span>
+        <span class="contact-link-val">Subscribe to feed</span>
+      </a>
+    </div>
+  </div>
+</div>

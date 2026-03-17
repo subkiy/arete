@@ -1,0 +1,16 @@
+<nav>
+  <div class="nav-inner">
+    <a href="{{ '/' | relative_url }}" class="site-name">
+      <!-- Uncomment to add a logo image:
+      <img src="{{ '/images/logo.png' | relative_url }}" alt="{{ site.title }}">
+      -->
+      {{ site.title }}
+    </a>
+    <ul class="nav-links">
+      <li><a href="{{ '/philosophy/' | relative_url }}" {% if page.url contains 'philosophy' %}class="active"{% endif %}>Philosophy</a></li>
+      <li><a href="{{ '/mathematics/' | relative_url }}" {% if page.url contains 'mathematics' %}class="active"{% endif %}>Mathematics</a></li>
+      <li><a href="{{ '/programming/' | relative_url }}" {% if page.url contains 'programming' %}class="active"{% endif %}>Programming</a></li>
+      <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
+    </ul>
+  </div>
+</nav>

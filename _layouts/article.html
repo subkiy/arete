@@ -1,0 +1,104 @@
+---
+layout: default
+---
+
+<div id="progress-bar"></div>
+
+<!-- Hero -->
+<header>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-meta">
+        <span class="hero-category">{{ page.category }}</span>
+        <div class="hero-dot"></div>
+        <span class="hero-date">{{ page.date | date: "%-d %B %Y" }} · {{ page.read_time }} min read</span>
+      </div>
+      <h1>{{ page.title }}</h1>
+    </div>
+    <div class="hero-right">
+      <p class="hero-dek">{{ page.subtitle }}</p>
+      <div class="hero-author-row">
+        <div class="author-avatar">
+          {% if page.author_image %}
+            <img src="{{ page.author_image | relative_url }}" alt="{{ page.author }}">
+          {% else %}
+            {{ page.author_initials }}
+          {% endif %}
+        </div>
+        <div class="author-info">
+          <div class="author-name">{{ page.author }}</div>
+          <div class="author-title">{{ page.author_title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero image -->
+  {% if page.image %}
+  <div class="hero-image">
+    <figure>
+      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+    </figure>
+    {% if page.image_caption %}
+    <figcaption>{{ page.image_caption }}</figcaption>
+    {% endif %}
+  </div>
+  {% endif %}
+</header>
+
+<hr style="border:none;border-top:1px solid var(--rule);max-width:900px;margin:0 auto;">
+
+<article>
+  {{ content }}
+</article>
+
+<!-- Author Bio -->
+<div class="author-bio">
+  <div class="author-avatar">
+    {% if page.author_image %}
+      <img src="{{ page.author_image | relative_url }}" alt="{{ page.author }}">
+    {% else %}
+      {{ page.author_initials }}
+    {% endif %}
+  </div>
+  <div class="author-bio-text">
+    <h4>{{ page.author }}</h4>
+    <p>{{ page.author_bio }}</p>
+  </div>
+</div>
+
+<!-- Tags -->
+{% if page.tags %}
+<div class="tags">
+  {% for tag in page.tags %}
+  <a class="tag" href="{{ '/tag/' | append: tag | relative_url }}">{{ tag }}</a>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Related -->
+{% if page.related %}
+<section class="related">
+  <div class="related-inner">
+    <h2>Further Reading</h2>
+    <div class="related-grid">
+      {% for item in page.related %}
+      <a class="related-card" href="{{ item.url | relative_url }}">
+        <div class="related-card-cat">{{ item.category }}</div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (scrolled / total * 100) + '%';
+  });
+</script>

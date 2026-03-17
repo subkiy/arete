@@ -1,0 +1,30 @@
+# ─── Site Settings ─────────────────────────────────────
+title: Logos
+description: Long-form essays at the intersection of philosophy, mathematics, science, and culture.
+url: "" # e.g. https://yourusername.github.io
+baseurl: "" # e.g. /logos-site if your repo is not the root
+
+# ─── Author ─────────────────────────────────────────────
+author:
+  name: Your Name Here
+  title: Your Title · Your Affiliation
+  initials: YN
+  email: you@yourdomain.com
+  twitter: "@yourhandle"
+
+# ─── Collections ────────────────────────────────────────
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+
+# ─── Build ──────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# ─── Exclude ────────────────────────────────────────────
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
