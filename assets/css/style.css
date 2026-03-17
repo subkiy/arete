@@ -51,7 +51,7 @@ nav {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--ink) !important;
   text-decoration: none;
   text-align: center;
 }
@@ -71,6 +71,19 @@ nav {
   list-style: none;
   justify-content: flex-end;
 }
+.nav-links a,
+.nav-links--left a,
+.nav-links--right a,
+.nav-links--left a:visited,
+.nav-links--right a:visited,
+.nav-dropdown-toggle,
+.site-name {
+  color: var(--ink-light) !important;
+  text-decoration: none !important;
+}
+
+.nav-links--left a:hover,
+.nav-links--right a:hover { color: var(--accent) !important; }
 
 .nav-social {
   display: flex;
