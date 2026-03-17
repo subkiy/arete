@@ -1,16 +1,16 @@
 # ─── Site Settings ─────────────────────────────────────
 title: Aretē
 description: Long-form essays at the intersection of philosophy, mathematics, science, and culture.
-url: "" # e.g. https://yourusername.github.io
-baseurl: "" # e.g. /logos-site if your repo is not the root
+url: "subkiy.github.io" # e.g. https://yourusername.github.io
+baseurl: "/arete" # e.g. /logos-site if your repo is not the root
 
 # ─── Author ─────────────────────────────────────────────
 author:
-  name: Your Name Here
-  title: Your Title · Your Affiliation
-  initials: YN
+  name: subkiy
+  title: Student · University of Oslo
+  initials: SS
   email: you@yourdomain.com
-  twitter: "@yourhandle"
+  twitter: "@subkiyyy"
 
 # ─── Collections ────────────────────────────────────────
 collections:
