@@ -1,10 +1,10 @@
 <nav id="main-nav">
   <div class="nav-inner">
 
-    <!-- Left: Categories + social icons -->
+    <!-- Left: Menu + separators + social icons -->
     <ul class="nav-links--left">
       <li class="nav-dropdown">
-        <a href="#" class="nav-dropdown-toggle">Categories ▾</a>
+        <a href="#" class="nav-dropdown-toggle">Menu ▾</a>
         <ul class="dropdown-menu">
           <li><a href="{{ '/philosophy.html' | relative_url }}">Philosophy</a></li>
           <li><a href="{{ '/mathematics.html' | relative_url }}">Mathematics</a></li>
@@ -14,6 +14,13 @@
           <li><a href="{{ '/theology.html' | relative_url }}">Theology</a></li>
         </ul>
       </li>
+      <li class="nav-sep">/</li>
+      <li>
+        <a href="#" class="nav-search-btn" id="nav-search-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </a>
+      </li>
+      <li class="nav-sep">/</li>
       <li>
         <div class="nav-social">
           <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter">
@@ -38,13 +45,19 @@
       <li><a href="#subscribe">Subscribe</a></li>
     </ul>
 
-    <!-- Mobile hamburger -->
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-
   </div>
 </nav>
+
+<!-- Search overlay -->
+<div class="nav-search-overlay" id="nav-search-overlay">
+  <div class="nav-search-box">
+    <input type="text" id="nav-search-input" placeholder="Search essays…" autocomplete="off">
+    <button class="nav-search-close" id="nav-search-close">✕</button>
+  </div>
+</div>
 
 <script>
   const hamburger = document.getElementById('nav-hamburger');
@@ -59,5 +72,20 @@
       document.querySelector('.nav-links--right').classList.remove('nav-open');
       hamburger.classList.remove('nav-hamburger--open');
     });
+  });
+
+  // Search
+  const searchBtn = document.getElementById('nav-search-btn');
+  const searchOverlay = document.getElementById('nav-search-overlay');
+  const searchClose = document.getElementById('nav-search-close');
+  const searchInput = document.getElementById('nav-search-input');
+  searchBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    searchOverlay.classList.add('active');
+    searchInput.focus();
+  });
+  searchClose.addEventListener('click', () => searchOverlay.classList.remove('active'));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') searchOverlay.classList.remove('active');
   });
 </script>
