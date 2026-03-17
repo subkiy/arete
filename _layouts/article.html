@@ -1,81 +1,75 @@
 ---
 layout: default
 ---
-
+ 
 <div id="progress-bar"></div>
-
-<!-- Hero -->
-<header>
-  <div class="hero">
-    <div class="hero-left">
-      <div class="hero-meta">
-        <span class="hero-category">{{ page.category }}</span>
-        <div class="hero-dot"></div>
-        <span class="hero-date">{{ page.date | date: "%-d %B %Y" }} · {{ page.read_time }} min read</span>
+ 
+<!-- Full-width hero image -->
+{% if page.image %}
+<div class="aeon-hero-image">
+  <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+  {% if page.image_caption %}
+  <p class="aeon-image-caption">{{ page.image_caption }}</p>
+  {% endif %}
+</div>
+{% endif %}
+ 
+<!-- Title block -->
+<div class="aeon-title-block">
+  <div class="aeon-category">{{ page.category }}</div>
+  <h1 class="aeon-title">{{ page.title }}</h1>
+  <p class="aeon-subtitle">{{ page.subtitle }}</p>
+ 
+  <div class="aeon-byline">
+    <div class="aeon-byline-author">
+      <div class="aeon-author-avatar">
+        {% if page.author_image %}
+          <img src="{{ page.author_image | relative_url }}" alt="{{ page.author }}">
+        {% else %}
+          {{ page.author_initials }}
+        {% endif %}
       </div>
-      <h1>{{ page.title }}</h1>
+      <div>
+        <div class="aeon-author-name">{{ page.author }}</div>
+        <div class="aeon-author-title">{{ page.author_title }}</div>
+      </div>
     </div>
-    <div class="hero-right">
-      <p class="hero-dek">{{ page.subtitle }}</p>
-      <div class="hero-author-row">
-        <div class="author-avatar">
-          {% if page.author_image %}
-            <img src="{{ page.author_image | relative_url }}" alt="{{ page.author }}">
-          {% else %}
-            {{ page.author_initials }}
-          {% endif %}
-        </div>
-        <div class="author-info">
-          <div class="author-name">{{ page.author }}</div>
-          <div class="author-title">{{ page.author_title }}</div>
-        </div>
-      </div>
+    <div class="aeon-byline-meta">
+      {{ page.date | date: "%-d %B %Y" }} · {{ page.read_time }} min read
     </div>
   </div>
-
-  <!-- Hero image -->
-  {% if page.image %}
-  <div class="hero-image">
-    <figure>
-      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
-    </figure>
-    {% if page.image_caption %}
-    <figcaption>{{ page.image_caption }}</figcaption>
-    {% endif %}
+ 
+  {% if page.tags %}
+  <div class="aeon-tags">
+    {% for tag in page.tags %}
+    <a class="aeon-tag" href="#">{{ tag }}</a>
+    {% endfor %}
   </div>
   {% endif %}
-</header>
-
-<hr style="border:none;border-top:1px solid var(--rule);max-width:900px;margin:0 auto;">
-
-<article>
+</div>
+ 
+<hr class="aeon-rule">
+ 
+<!-- Article body -->
+<article class="aeon-article">
   {{ content }}
 </article>
-
-<!-- Author Bio -->
-<div class="author-bio">
-  <div class="author-avatar">
+ 
+<!-- Author bio -->
+<div class="aeon-author-bio">
+  <div class="aeon-author-avatar large">
     {% if page.author_image %}
       <img src="{{ page.author_image | relative_url }}" alt="{{ page.author }}">
     {% else %}
       {{ page.author_initials }}
     {% endif %}
   </div>
-  <div class="author-bio-text">
-    <h4>{{ page.author }}</h4>
+  <div class="aeon-author-bio-text">
+    <div class="aeon-author-name">{{ page.author }}</div>
     <p>{{ page.author_bio }}</p>
   </div>
 </div>
-
-<!-- Tags -->
-{% if page.tags %}
-<div class="tags">
-  {% for tag in page.tags %}
-  <a class="tag" href="{{ '/tag/' | append: tag | relative_url }}">{{ tag }}</a>
-  {% endfor %}
-</div>
-{% endif %}
-
+ 
 <!-- Related -->
 {% if page.related %}
 <section class="related">
@@ -83,7 +77,7 @@ layout: default
     <h2>Further Reading</h2>
     <div class="related-grid">
       {% for item in page.related %}
-      <a class="related-card" href="{{ item.url | relative_url }}">
+      <a class="related-card" href="{{ item.url }}">
         <div class="related-card-cat">{{ item.category }}</div>
         <h3>{{ item.title }}</h3>
         <p>{{ item.description }}</p>
@@ -93,7 +87,7 @@ layout: default
   </div>
 </section>
 {% endif %}
-
+ 
 <script>
   const bar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
@@ -101,4 +95,7 @@ layout: default
     const total = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (scrolled / total * 100) + '%';
   });
+ 
+  const firstP = document.querySelector('.aeon-article p:first-child');
+  if (firstP) firstP.classList.add('drop-cap');
 </script>

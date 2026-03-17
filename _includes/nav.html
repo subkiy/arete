@@ -1,16 +1,40 @@
-<nav>
+<nav id="main-nav">
   <div class="nav-inner">
-    <a href="{{ '/' | relative_url }}" class="site-name">
-      <!-- Uncomment to add a logo image:
-      <img src="{{ '/images/logo.png' | relative_url }}" alt="{{ site.title }}">
-      -->
-      {{ site.title }}
-    </a>
-    <ul class="nav-links">
-      <li><a href="{{ '/philosophy/' | relative_url }}" {% if page.url contains 'philosophy' %}class="active"{% endif %}>Philosophy</a></li>
-      <li><a href="{{ '/mathematics/' | relative_url }}" {% if page.url contains 'mathematics' %}class="active"{% endif %}>Mathematics</a></li>
-      <li><a href="{{ '/programming/' | relative_url }}" {% if page.url contains 'programming' %}class="active"{% endif %}>Programming</a></li>
-      <li><a href="{{ '/about/' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
+    <a href="{{ '/' | relative_url }}" class="site-name">Aretē</a>
+
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="nav-links">
+      <li class="nav-dropdown">
+        <a href="#" class="nav-dropdown-toggle">Categories ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="{{ '/philosophy.html' | relative_url }}">Philosophy</a></li>
+          <li><a href="{{ '/mathematics.html' | relative_url }}">Mathematics</a></li>
+          <li><a href="{{ '/programming.html' | relative_url }}">Programming</a></li>
+          <li><a href="{{ '/book-reviews.html' | relative_url }}">Book Reviews</a></li>
+          <li><a href="{{ '/politics.html' | relative_url }}">Politics</a></li>
+          <li><a href="{{ '/theology.html' | relative_url }}">Theology</a></li>
+        </ul>
+      </li>
+      <li><a href="{{ '/about.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
+      <li><a href="#subscribe">Subscribe</a></li>
     </ul>
   </div>
 </nav>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-open');
+    hamburger.classList.toggle('nav-hamburger--open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav-open');
+      hamburger.classList.remove('nav-hamburger--open');
+    });
+  });
+</script>

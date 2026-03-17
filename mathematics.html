@@ -1,0 +1,41 @@
+---
+layout: default
+title: Mathematics
+permalink: /mathematics.html
+description: "Essays on number, proof, infinity, and the unreasonable effectiveness of abstraction."
+tags_list:
+  - Number Theory
+  - Logic
+  - Proof
+  - History of Mathematics
+  - Infinity
+  - Geometry
+  - Applied Mathematics
+---
+
+<div class="aeon-cat-header">
+  <div class="aeon-cat-title">{{ page.title }}</div>
+  <p class="aeon-cat-desc">{{ page.description }}</p>
+  {% if page.tags_list %}
+  <div class="aeon-cat-tags">
+    {% for t in page.tags_list %}<a class="aeon-cat-tag" href="#">{{ t }}</a>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="aeon-cat-tabs"><span class="aeon-cat-tab active">Latest</span></div>
+</div>
+
+<div class="essays-wrap">
+  {% assign articles = site.articles | sort: "date" | reverse %}
+  {% for article in articles %}
+    {% assign cat_lower = article.category | downcase %}
+    {% if cat_lower contains "mathematics" %}
+    <a class="essay-list-item" href="{{ article.url | relative_url }}">
+      <div class="essay-list-left">
+        <div class="essay-list-cat">{{ article.category }}</div>
+        <div class="essay-list-title">{{ article.title }}</div>
+      </div>
+      <div class="essay-list-right">{{ article.date | date: "%-d %b %Y" }} · {{ article.read_time }} min</div>
+    </a>
+    {% endif %}
+  {% endfor %}
+</div>
