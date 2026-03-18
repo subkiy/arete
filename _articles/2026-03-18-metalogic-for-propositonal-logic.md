@@ -263,3 +263,4 @@ Sider, Ted (2010). *Logic for Philosophy*. New York: Oxford University Press.
 [^14]: Here "theorem" refers to a theorem of metalogic.
 [^15]: Most mathematical logic textbooks adopt this method.
 [^16]: Derivable from the axioms.
+
