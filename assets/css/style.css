@@ -1281,8 +1281,10 @@ footer a:hover { color: var(--accent) !important; }
 
 .cat-essay-item:hover .cat-essay-thumb img { transform: scale(1.04); }
 
-.cat-essay-body { min-width: 0; }
-
+.cat-essay-body {
+  min-width: 0;
+  overflow: visible;
+}
 .cat-essay-sub {
   font-size: 0.88rem;
   font-style: italic;
