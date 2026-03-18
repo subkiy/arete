@@ -27,11 +27,19 @@ tags_list:
   {% assign articles = site.articles | sort: "date" | reverse %}
   {% for article in articles %}
     {% assign cat_lower = article.category | downcase %}
-    {% if cat_lower contains "book" %}
-    <a class="essay-list-item" href="{{ article.url | relative_url }}">
-      <div class="essay-list-left">
+    {% if cat_lower contains "book-reviews" %}
+    <a class="cat-essay-item" href="{{ article.url | relative_url }}">
+      {% if article.image %}
+      <div class="cat-essay-thumb">
+        <img src="{{ article.image | relative_url }}" alt="{{ article.title }}">
+      </div>
+      {% endif %}
+      <div class="cat-essay-body">
         <div class="essay-list-cat">{{ article.category }}</div>
         <div class="essay-list-title">{{ article.title }}</div>
+        {% if article.subtitle %}
+        <p class="cat-essay-sub">{{ article.subtitle }}</p>
+        {% endif %}
       </div>
       <div class="essay-list-right">{{ article.date | date: "%-d %b %Y" }} · {{ article.read_time }} min</div>
     </a>
