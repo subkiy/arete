@@ -1304,3 +1304,16 @@ footer a:hover { color: var(--accent) !important; }
 
 .cat-essay-item .essay-list-cat { color: var(--accent) !important; }
 .cat-essay-item .essay-list-right { color: var(--ink-faint) !important; white-space: nowrap; }
+
+.cat-essay-sub {
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-faint);
+  line-height: 1.5;
+  margin-top: 0.3rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
