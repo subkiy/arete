@@ -1171,6 +1171,16 @@ footer a:hover { color: var(--accent) !important; }
   .hide-mobile { display: none !important; }
   .nav-hamburger { display: flex !important; }
   .nav-links--right { display: none !important; }
+
+  .nav-inner {
+    grid-template-columns: auto 1fr auto;
+    padding: 0 1rem;
+  }
+
+  .site-name {
+    text-align: center;
+  }
+
   .essay-grid { grid-template-columns: 1fr; }
   .related-grid { grid-template-columns: 1fr; }
   .interests-grid { grid-template-columns: 1fr; }
@@ -1179,11 +1189,32 @@ footer a:hover { color: var(--accent) !important; }
   .aeon-byline { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .aeon-title-block { text-align: left; }
   .aeon-tags { justify-content: flex-start; }
+
+  /* Fix category list on mobile */
+  .cat-essay-item {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+  }
+
+  .cat-essay-item .essay-list-right {
+    grid-column: 1 / -1;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .cat-essay-thumb {
+    width: 80px;
+    height: 65px;
+  }
 }
 
 @media (min-width: 561px) {
   .nav-hamburger { display: none !important; }
   .mobile-menu { display: none !important; }
+}
+@media (max-width: 560px) {
+  .cat-essay-sub { display: none; }
 }
 
 /* ─── Article footer (tags + date) ───────────────────── */
