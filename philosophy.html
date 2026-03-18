@@ -35,6 +35,8 @@ tags_list:
       <div class="cat-essay-thumb">
         <img src="{{ article.image | relative_url }}" alt="{{ article.title }}">
       </div>
+      {% else %}
+      <div class="cat-essay-thumb"></div>
       {% endif %}
       <div class="cat-essay-body">
         <div class="essay-list-cat">{{ article.category }}</div>
