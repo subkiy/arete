@@ -1,5 +1,6 @@
 ---
 layout: article
+render_with_liquid: false
 title: "Metalogic for Propositional Logic"
 subtitle: "What makes a logical system trustworthy? Metalogic asks not how to use logic, but what logic itself is — examining the deep relationship between semantic truth and formal proof."
 category: "Philosophy · Logic"
