@@ -1318,3 +1318,51 @@ footer a:hover { color: var(--accent) !important; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ─── Footnotes ──────────────────────────────────────── */
+.aeon-article .footnotes {
+  max-width: 680px;
+  margin: 3rem auto 0;
+  padding: 2rem 2rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.aeon-article .footnotes ol {
+  padding-left: 1.5rem;
+}
+
+.aeon-article .footnotes li {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-light);
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+.aeon-article .footnotes li p {
+  display: inline;
+  margin: 0;
+}
+
+.aeon-article .footnotes a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+}
+
+.aeon-article .footnotes a.reversefootnote {
+  font-size: 0.8rem;
+  margin-left: 0.4rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.aeon-article .footnotes a.reversefootnote:hover { opacity: 1; }
+
+.aeon-article sup a {
+  color: var(--accent) !important;
+  text-decoration: none !important;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+}
