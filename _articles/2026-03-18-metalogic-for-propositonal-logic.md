@@ -93,7 +93,7 @@ Every language has rules governing the formation of meaningful words and sentenc
 
 **(1)** Every sentence letter is a PL-wff.
 
-**(2)** If $$\phi$$ and $$\psi$$ are PL-wffs, then "$$(\phi \supset \psi)$$" and "$${\sim}\phi$$" are also PL-wffs.
+**(2)** If $$\phi$$ and $$\psi$$ are PL-wffs, then "$$(\phi \supset \psi)$$" and "$$\sim\phi$$" are also PL-wffs.
 
 **(3)** No string of symbols expressible by neither of the above is a PL-wff.
 
@@ -101,8 +101,8 @@ Here "$$\phi$$" and "$$\psi$$" are *metasymbols* indicating that any wff may be 
 
 | Abbreviation | Definition |
 |---|---|
-| $$(\phi \bullet \psi)$$ | $${\sim}(\phi \supset {\sim}\psi)$$ |
-| $$(\phi \vee \psi)$$ | $${\sim}\phi \supset \psi$$ |
+| $$(\phi \bullet \psi)$$ | $$\sim(\phi \supset \sim\psi)$$ |
+| $$(\phi \vee \psi)$$ | $$\sim\phi \supset \psi$$ |
 | $$(\phi \equiv \psi)$$ | $$(\phi \supset \psi) \bullet (\psi \supset \phi)$$ |
 
 ---
@@ -121,7 +121,7 @@ Once the truth values of atomic sentences are fixed, the truth values of compoun
 >
 > $$V_f(\alpha) = f(\alpha)$$
 >
-> $$V_f({\sim}\phi) = 1 \iff V_f(\phi) = 0$$
+> $$V_f(\sim\phi) = 1 \iff V_f(\phi) = 0$$
 >
 > $$V_f(\phi \supset \psi) = 1 \iff V_f(\phi) = 0 \text{ or } V_f(\psi) = 1$$
 
@@ -150,7 +150,7 @@ $$\phi \supset (\psi \supset \phi) \tag{A1}$$
 
 $$(\phi \supset (\psi \supset \chi)) \supset ((\phi \supset \psi) \supset (\phi \supset \chi)) \tag{A2}$$
 
-$$({\sim}\psi \supset {\sim}\phi) \supset (({\sim}\psi \supset \phi) \supset \psi) \tag{A3}$$
+$$(\sim\psi \supset \sim\phi) \supset ((\sim\psi \supset \phi) \supset \psi) \tag{A3}$$
 
 We now define:
 
@@ -210,21 +210,21 @@ The completeness proof follows the **Henkin method**.[^15] We first define:
 
 > **Inconsistency:** A set $$\Gamma$$ is *inconsistent* iff $$\Gamma \vdash \bot$$; otherwise it is *consistent*.
 >
-> **Maximality:** A set $$\Gamma$$ is *maximal* iff for every wff $$\phi$$, either $$\phi$$ or $${\sim}\phi$$ (or both) is in $$\Gamma$$.
+> **Maximality:** A set $$\Gamma$$ is *maximal* iff for every wff $$\phi$$, either $$\phi$$ or $$\sim\phi$$ (or both) is in $$\Gamma$$.
 >
 > **Maximal Consistent Set Theorem:** If $$\Delta$$ is a consistent set of wffs, then there exists a maximal consistent set $$\Gamma$$ with $$\Delta \subseteq \Gamma$$.
 
 Two lemmas follow:
 
-> **Lemma 1:** For any wff $$\phi$$, exactly one of $$\phi$$ or $${\sim}\phi$$ belongs to $$\Gamma$$.
+> **Lemma 1:** For any wff $$\phi$$, exactly one of $$\phi$$ or $$\sim\phi$$ belongs to $$\Gamma$$.
 >
 > **Lemma 2:** $$\phi \supset \psi \in \Gamma$$ if and only if $$\phi \notin \Gamma$$ or $$\psi \in \Gamma$$.
 
 We prove the contrapositive of completeness: *if $$\nvdash \phi$$, then $$\nvDash \phi$$*. We assume $$\nvdash \phi$$ and construct an interpretation that makes $$\phi$$ false.
 
-By assumption, $$\{{\sim}\phi\}$$ must be consistent. If it were not, then $${\sim}\phi \vdash \bot$$, and by the Deduction Theorem $$\vdash {\sim}\phi \supset \bot$$. By the definition of $$\bot$$: $$\vdash {\sim}\phi \supset {\sim}(P \supset P)$$. Taking the contrapositive[^16] gives $$\vdash (P \supset P) \supset \phi$$; since $$\vdash (P \supset P)$$, we get $$\vdash \phi$$ — a contradiction.
+By assumption, $$\{\sim\phi\}$$ must be consistent. If it were not, then $$\sim\phi \vdash \bot$$, and by the Deduction Theorem $$\vdash \sim\phi \supset \bot$$. By the definition of $$\bot$$: $$\vdash \sim\phi \supset \sim(P \supset P)$$. Taking the contrapositive[^16] gives $$\vdash (P \supset P) \supset \phi$$; since $$\vdash (P \supset P)$$, we get $$\vdash \phi$$ — a contradiction.
 
-By the Maximal Consistent Set Theorem, $$\{{\sim}\phi\} \subseteq \Gamma$$ for some maximal consistent set $$\Gamma$$. Define an interpretation $$f$$ by:
+By the Maximal Consistent Set Theorem, $$\{\sim\phi\} \subseteq \Gamma$$ for some maximal consistent set $$\Gamma$$. Define an interpretation $$f$$ by:
 
 $$f(\alpha) = 1 \iff \alpha \in \Gamma \quad \text{for each sentence letter } \alpha$$
 
@@ -232,13 +232,13 @@ We claim that for all wffs $$\phi$$:
 
 $$V_f(\phi) = 1 \iff \phi \in \Gamma$$
 
-*Proof by induction.* The base case holds by definition of $$f$$. For the inductive step, we verify $${\sim}\phi$$ and $$\phi \supset \psi$$ (using Lemmas 1 and 2):
+*Proof by induction.* The base case holds by definition of $$f$$. For the inductive step, we verify $$\sim\phi$$ and $$\phi \supset \psi$$ (using Lemmas 1 and 2):
 
-$$V_f({\sim}\phi) = 1 \iff {\sim}\phi \in \Gamma$$
+$$V_f(\sim\phi) = 1 \iff \sim\phi \in \Gamma$$
 
 $$V_f(\phi \supset \psi) = 1 \iff \phi \supset \psi \in \Gamma$$
 
-Since $$\{{\sim}\phi\} \subseteq \Gamma$$, we have $${\sim}\phi \in \Gamma$$, and by Lemma 1, $$\phi \notin \Gamma$$. Therefore $$\phi$$ is not true under $$f$$, establishing $$\nvDash \phi$$. $$\blacksquare$$
+Since $$\{\sim\phi\} \subseteq \Gamma$$, we have $$\sim\phi \in \Gamma$$, and by Lemma 1, $$\phi \notin \Gamma$$. Therefore $$\phi$$ is not true under $$f$$, establishing $$\nvDash \phi$$. $$\blacksquare$$
 
 ---
 
