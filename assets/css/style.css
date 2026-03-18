@@ -1225,5 +1225,58 @@ footer a:hover { color: var(--accent) !important; }
 }
 
 
+/* ─── Category essay list with thumbnails ────────────── */
+.cat-essay-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none !important;
+  color: inherit;
+  transition: background 0.15s;
+}
 
+.cat-essay-item:first-child { border-top: 1px solid var(--rule); }
+.cat-essay-item:hover .essay-list-title { color: var(--accent); }
+
+.cat-essay-thumb {
+  width: 120px;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--paper-warm);
+  flex-shrink: 0;
+}
+
+.cat-essay-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.cat-essay-item:hover .cat-essay-thumb img { transform: scale(1.04); }
+
+.cat-essay-body { flex: 1; }
+
+.cat-essay-sub {
+  font-size: 0.88rem;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--ink-faint);
+  line-height: 1.5;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 560px) {
+  .cat-essay-item {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+  }
+  .cat-essay-item .essay-list-right {
+    grid-column: 2;
+    text-align: left;
+  }
+}
 
