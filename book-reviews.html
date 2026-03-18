@@ -27,7 +27,7 @@ tags_list:
   {% assign articles = site.articles | sort: "date" | reverse %}
   {% for article in articles %}
     {% assign cat_lower = article.category | downcase %}
-    {% if cat_lower contains "book-reviews" %}
+    {% if cat_lower contains "book reviews" %}
     <a class="cat-essay-item" href="{{ article.url | relative_url }}">
       {% if article.image %}
       <div class="cat-essay-thumb">
