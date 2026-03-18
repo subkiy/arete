@@ -8,6 +8,7 @@ author: "Your Name Here"
 author_initials: "YN"
 author_title: "Your Title · Your Affiliation"
 author_bio: "Replace this with your own bio. A sentence or two about who you are and what you write about."
+image: /images/intuition.jpg
 read_time: 10
 featured: false
 mathjax: false
