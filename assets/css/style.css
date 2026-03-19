@@ -1366,3 +1366,82 @@ footer a:hover { color: var(--accent) !important; }
   font-size: 0.65rem;
   font-weight: 500;
 }
+/* ─── Dark Mode ──────────────────────────────────────── */
+:root {
+  --ink:        #1a1714;
+  --ink-light:  #5a5450;
+  --ink-faint:  #9a9490;
+  --paper:      #faf8f4;
+  --paper-warm: #f2ede4;
+  --accent:     #b04a2a;
+  --accent-dim: #d4795e;
+  --rule:       #ddd8cf;
+}
+ 
+[data-theme="dark"] {
+  --ink:        #e8e4dc;
+  --ink-light:  #a8a29c;
+  --ink-faint:  #6a6460;
+  --paper:      #1a1714;
+  --paper-warm: #221e1a;
+  --accent:     #d4795e;
+  --accent-dim: #b04a2a;
+  --rule:       #3a3530;
+}
+ 
+[data-theme="dark"] nav,
+[data-theme="dark"] .dropdown-menu,
+[data-theme="dark"] .mobile-menu {
+  background: #1a1714;
+}
+ 
+[data-theme="dark"] .home-hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.3) 0%,
+    rgba(0,0,0,0.6) 40%,
+    rgba(0,0,0,0.95) 100%
+  );
+}
+ 
+[data-theme="dark"] .essay-card-img,
+[data-theme="dark"] .cat-essay-thumb,
+[data-theme="dark"] .aeon-hero-image {
+  filter: brightness(0.85);
+}
+ 
+/* ─── Dark mode toggle button ────────────────────────── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--rule);
+  cursor: pointer;
+  width: 32px;
+  height: 18px;
+  border-radius: 9px;
+  position: relative;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+  padding: 0;
+}
+ 
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--ink-light);
+  transition: transform 0.3s, background 0.3s;
+}
+ 
+[data-theme="dark"] .theme-toggle {
+  background: var(--accent-dim);
+  border-color: var(--accent-dim);
+}
+ 
+[data-theme="dark"] .theme-toggle::after {
+  transform: translateX(14px);
+  background: var(--paper);
+}
