@@ -40,11 +40,27 @@
     <a href="{{ '/' | relative_url }}" class="site-name">Aretē</a>
 
     <!-- Right: About + Subscribe + Dark mode toggle -->
+
     <ul class="nav-links--right hide-mobile">
-      <li><a href="{{ '/about.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
-      <li><a href="#subscribe">Subscribe</a></li>
-      <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"></button></li>
-    </ul>
+    <li><a href="{{ '/about.html' | relative_url }}" {% if page.url contains 'about' %}class="active"{% endif %}>About</a></li>
+  <li><a href="#subscribe">Subscribe</a></li>
+  <li>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+      <svg id="theme-icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+  </li>
+</ul>
+ 
 
     <!-- Mobile hamburger -->
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu">
@@ -112,23 +128,28 @@
     if (e.key === 'Escape') searchOverlay.classList.remove('active');
   });
 
-  // Dark mode toggle — persists via localStorage
+// Dark mode toggle — persists via localStorage
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) html.setAttribute('data-theme', savedTheme);
+  updateIcon();
+
+  function updateIcon() {
+    const icon = document.getElementById('theme-icon');
+    if (!icon) return;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    icon.innerHTML = isDark
+      ? '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>'
+      : '<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>';
+  }
 
   function applyTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    updateIcon();
   }
 
   function toggleTheme() {
     const current = html.getAttribute('data-theme');
     applyTheme(current === 'dark' ? 'light' : 'dark');
   }
-
-  const toggleBtn = document.getElementById('theme-toggle');
-  const toggleBtnMobile = document.getElementById('theme-toggle-mobile');
-  if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
-  if (toggleBtnMobile) toggleBtnMobile.addEventListener('click', toggleTheme);
-</script>
