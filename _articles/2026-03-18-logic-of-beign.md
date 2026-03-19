@@ -12,7 +12,7 @@ author_bio: "subkiy is Professor of Philosophy at the University of Edinburgh, w
 read_time: 15
 image: /images/eksis.jpg
 image_caption: "The evolution of the 'Is' — from Aristotelian copula to the existential quantifier."
-featured: true
+featured: false
 mathjax: true
 tags:
   - Logic
