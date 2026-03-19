@@ -13,7 +13,7 @@ author_bio: "This paper is a summary of metalogic theory for propositional logic
 read_time: 18
 image: /images/logic.jpg
 image_caption: "Your image caption goes here — photograph courtesy of …"
-featured: true
+featured: false
 mathjax: true
 tags:
   - Logic
