@@ -1424,24 +1424,21 @@ footer a:hover { color: var(--accent) !important; }
   padding: 0;
 }
  
-.theme-toggle::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--ink-light);
-  transition: transform 0.3s, background 0.3s;
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-light);
+  transition: color 0.2s;
+  line-height: 1;
 }
- 
-[data-theme="dark"] .theme-toggle {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-}
- 
-[data-theme="dark"] .theme-toggle::after {
-  transform: translateX(14px);
-  background: var(--paper);
-}
+
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle svg { display: block; }
+
+[data-theme="dark"] .theme-toggle { color: var(--ink-light); }
+[data-theme="dark"] .theme-toggle:hover { color: var(--accent); }
