@@ -28,7 +28,6 @@ body {
 /* ─── Nav ────────────────────────────────────────────── */
 nav {
   position: sticky;
-  border-top: 3px solid var(--accent);
   top: 0;
   background: var(--paper);
   border-bottom: 1px solid var(--rule);
