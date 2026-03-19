@@ -341,10 +341,9 @@ footer a:hover { color: var(--accent) !important; }
 .aeon-title-block {
   max-width: 740px;
   margin: 0 auto;
-  padding: 4rem 2rem 2rem;
+  padding: 4rem 2rem 1rem;
   text-align: center;
 }
-
 .aeon-category {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.68rem;
@@ -495,7 +494,7 @@ footer a:hover { color: var(--accent) !important; }
 .aeon-article {
   max-width: 740px;
   margin: 0 auto;
-  padding: 3rem 2rem 4rem;
+  padding: 2rem 2rem 4rem;
   font-size: 1.1rem;
   line-height: 1.85;
 }
