@@ -78,7 +78,12 @@ layout: default
 </div>
 {% endif %}
 <!-- Related -->
-
+{% if page.related %}
+<section class="related">
+  <div class="related-inner">
+    <h2>Further Reading</h2>
+    <div class="related-grid">
+      {% for item in page.related %}
       <a class="related-card" href="{{ item.url }}">
         <div class="related-card-cat">{{ item.category }}</div>
         <h3>{{ item.title }}</h3>
