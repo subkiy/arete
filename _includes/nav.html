@@ -132,7 +132,7 @@
   const html = document.documentElement;
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme) html.setAttribute('data-theme', savedTheme);
-  updateIcon();
+  document.addEventListener('DOMContentLoaded', updateIcon);
 
   function updateIcon() {
     const icon = document.getElementById('theme-icon');
