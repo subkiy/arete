@@ -1,25 +1,29 @@
 ---
 layout: default
 ---
-
+ 
 <div id="progress-bar"></div>
-
-<!-- Full-width hero image -->
+ 
 {% if page.image %}
-<div class="aeon-hero-image">
-  <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
-  {% if page.image_caption %}
-  <p class="aeon-image-caption">{{ page.image_caption }}</p>
-  {% endif %}
+<div class="point-hero">
+  <div class="point-hero-img">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    <div class="point-hero-overlay"></div>
+  </div>
+  <div class="point-hero-content">
+    <div class="point-meta">{{ page.category }} · {{ page.date | date: "%-d %B %Y" }}</div>
+    <h1 class="point-title">{{ page.title }}</h1>
+    <p class="point-deck">{{ page.subtitle }}</p>
+    <p class="point-byline">by {{ page.author }}</p>
+  </div>
 </div>
-{% endif %}
-
-<!-- Title block -->
+{% else %}
 <div class="aeon-title-block">
-  <div class="aeon-category">{{ page.category }}</div>
+  <div class="title-ornament">
+    <div class="aeon-category">{{ page.category }}</div>
+  </div>
   <h1 class="aeon-title">{{ page.title }}</h1>
   <p class="aeon-subtitle">{{ page.subtitle }}</p>
-
   <div class="aeon-byline">
     <div class="aeon-byline-author">
       <div class="aeon-author-avatar">
@@ -38,23 +42,14 @@ layout: default
       {{ page.date | date: "%-d %B %Y" }} · {{ page.read_time }} min read
     </div>
   </div>
-
-  {% if page.tags %}
-  <div class="aeon-tags">
-    {% for tag in page.tags %}
-    <a class="aeon-tag" href="#">{{ tag }}</a>
-    {% endfor %}
-  </div>
-  {% endif %}
 </div>
-
-<hr class="aeon-rule">
-
+{% endif %}
+ 
 <!-- Article body -->
 <article class="aeon-article">
   {{ content }}
 </article>
-
+ 
 <!-- Author bio -->
 <div class="aeon-author-bio">
   <div class="aeon-author-avatar large">
@@ -69,7 +64,19 @@ layout: default
     <p>{{ page.author_bio }}</p>
   </div>
 </div>
-
+ 
+<!-- Tags + date footer -->
+{% if page.tags %}
+<div class="article-footer">
+  <div class="article-footer-tags">
+    {% for tag in page.tags %}
+    <a class="article-footer-tag" href="#">{{ tag }}</a>
+    {% endfor %}
+  </div>
+  <div class="article-footer-date">{{ page.date | date: "%-d %B %Y" }}</div>
+</div>
+{% endif %}
+ 
 <!-- Related -->
 {% if page.related %}
 <section class="related">
@@ -87,7 +94,7 @@ layout: default
   </div>
 </section>
 {% endif %}
-
+ 
 <script>
   const bar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
@@ -95,7 +102,7 @@ layout: default
     const total = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (scrolled / total * 100) + '%';
   });
-
+ 
   const firstP = document.querySelector('.aeon-article p:first-child');
   if (firstP) firstP.classList.add('drop-cap');
 </script>
