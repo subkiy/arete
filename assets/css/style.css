@@ -1,5 +1,5 @@
 /* ─── Tokens ─────────────────────────────────────────── */
-:root {
+/*:root {
   --ink:        #1a1714;
   --ink-light:  #5a5450;
   --ink-faint:  #9a9490;
@@ -8,6 +8,19 @@
   --accent:     #b04a2a;
   --accent-dim: #d4795e;
   --rule:       #ddd8cf;
+  --col:        680px;
+  --wide:       900px;
+} */
+
+:root {
+  --ink:        #1c1414;
+  --ink-light:  #6a5a58;
+  --ink-faint:  #9a8a88;
+  --paper:      #faf8f6;
+  --paper-warm: #f0e8e4;
+  --accent:     #8c2f2f;
+  --accent-dim: #b05050;
+  --rule:       #dcd4d0;
   --col:        680px;
   --wide:       900px;
 }
