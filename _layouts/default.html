@@ -30,6 +30,14 @@
   {{ content }}
 
   {% include footer.html %}
+  <script>
+  window.addEventListener('scroll', () => {
+    const heroBg = document.querySelector('.aeon-hero-image img');
+    if (heroBg) {
+      heroBg.style.transform = `translateY(${window.scrollY * 0.35}px)`;
+    }
+  });
+</script>
 
 </body>
 </html>
