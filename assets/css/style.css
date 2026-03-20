@@ -1424,16 +1424,7 @@ footer a:hover { color: var(--accent) !important; }
   font-weight: 500;
 }
 /* ─── Dark Mode ──────────────────────────────────────── */
-:root {
-  --ink:        #1a1714;
-  --ink-light:  #5a5450;
-  --ink-faint:  #9a9490;
-  --paper:      #faf8f4;
-  --paper-warm: #f2ede4;
-  --accent:     #b04a2a;
-  --accent-dim: #d4795e;
-  --rule:       #ddd8cf;
-}
+
  
 [data-theme="dark"] {
   --ink:        #e8e4dc;
@@ -1597,3 +1588,4 @@ footer a:hover { color: var(--accent) !important; }
   .point-hero-content { padding: 0 1.5rem 2rem; }
   .point-hero { height: 80vh; }
 }
+
