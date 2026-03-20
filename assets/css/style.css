@@ -1561,7 +1561,7 @@ footer a:hover { color: var(--accent) !important; }
 .point-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 400;
+  font-weight: 700;
   line-height: 1.05;
   color: #fff;
   margin-bottom: 0.75rem;
@@ -1569,11 +1569,12 @@ footer a:hover { color: var(--accent) !important; }
 }
 
 .point-deck {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.55;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
   margin-bottom: 0.75rem;
 }
 
